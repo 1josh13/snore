@@ -1,9 +1,12 @@
 #!/usr/bin/python
+
+################################################################
 ##Authors: 1LT Daniel Brown
 ##         Assisted by SGT Matlock
 ##Purpose: Designed to allow error free snort rule entry for non 
 ##technical personnel.
 ################################################################
+
 from Tkinter import *
 
 
@@ -11,12 +14,12 @@ root = Tk()
 root.pack_propagate(False)
 root.geometry("800x300")
 root.title("Snore")
-#FUTURE WORK FOR IMAGE
+# FUTURE WORK FOR IMAGE
 #image = Tkinter.PhotoImage(Image.open('snore-master//Snort.png'))
 #panel = Tkinter.Label(root, image=imgag)
 #panel.pack(side = "bottom", fill = "both", expand = "yes")
 
-#This shows the location of the rules that you want to add too:
+# This shows the location of the rules that you want to add too:
 f = open('C://Users//Daniel//Desktop//snore-master//logs//local.rules','r')
 file_contents = f.read()
 
@@ -31,8 +34,9 @@ file_contents = f.read()
 ##root.config(menu = menuBar)
 
 ######################################################################################
-##These classes make adding widgets easier...ostensibly. Classes are kind
-##of a pain in the ass.
+##  These classes make adding widgets easier...ostensibly. Classes are kind
+##  of a pain in the ass.
+######################################################################################
 class Menuz(OptionMenu):
     def __init__(self, master, current, *options):
         self.master = master
@@ -57,8 +61,8 @@ class Labelz(Label):
         Label.__init__(self, textvariable=self.var)
         self.config(bg='snow', relief=RAISED,width=10)
 
-##Working on this button....it mostly works, but I haven't programmed
-##in two years so I'm doing the best that I can so stop whining.
+##  Working on this button....it mostly works, but I haven't programmed
+##  in two years so I'm doing the best that I can so stop whining.
 ##class Buttonz(Button):
 ##    def __init__(self,master,current,function):
 ##        self.master=master
@@ -67,7 +71,7 @@ class Labelz(Label):
 ##        Button.__init__(self,text=self.var,command=function)
 ##        self.config(width=10,bg='green')
 
-##This section is where the widgets are insantiated. 
+##  This section is where the widgets are insantiated.
 #menu1 = Menu(root)
 
 menu1 = Menuz(root, 'Alert','Alert','Log','Pass','Active','Dynamic','Drop','Reject','sdrop')
@@ -129,9 +133,11 @@ entry5.config(bg='seashell3',width=40)
 #label9.config(width=30)
 #label9.pack(side=BOTTOM,fill=X)
 
+######################################################################################
 ##This function concatenates the text variables the user has inputed
 ##above in the different classes and saves it as a rule to the snort
 ##file.
+######################################################################################
 def enterRule():
     a = (menu1.var).get()
     b = (menu2.var).get()
@@ -181,7 +187,7 @@ button3.grid(column=1,row=5)
 ##    deleteFrame.pack_forget()
 ##    readFrame.pack_forget()
 ##menuBar.add_command(label = 'HOME', command = showRoot)
-
+##
 ##def showAdd():
 ##    addFrame.pack(expand = True, fill = 'both')
 ##    readFrame.pack_forget()
@@ -199,5 +205,7 @@ button3.grid(column=1,row=5)
 ##    readFrame.pack_forget()
 ##    addFrame.pack_forget()
 ##menuBar.add_command(label = 'DELETE RULES', command = showDelete)
-    
+######################################################################################
+
+
 root.mainloop()
